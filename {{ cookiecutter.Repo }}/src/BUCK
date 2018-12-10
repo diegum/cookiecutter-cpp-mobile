@@ -1,0 +1,15 @@
+# Copyright (c) {{ cookiecutter.Year }}-present, {{ cookiecutter.Copyright_holder }}.
+# All rights reserved.
+#
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+
+cxx_library(
+  name = '{{ cookiecutter.Library_name }}',
+  header_namespace = '{{ cookiecutter.Library_name }}',
+  srcs = glob(['*.c', '*.cc', '*.cpp', '*.cxx']),
+  exported_headers = ['hello.h'],
+  visibility = [
+    'PUBLIC',
+  ],
+)

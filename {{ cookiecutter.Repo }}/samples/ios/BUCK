@@ -1,0 +1,39 @@
+# Copyright (c) {{ cookiecutter.Year }}-present, {{ cookiecutter.Copyright_holder }}.
+# All rights reserved.
+#
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+
+apple_resource(
+  name = 'CppLibCallerAppResources',
+  files = glob(['*.png']),
+  dirs = [],
+)
+
+apple_bundle(
+  name = 'CppLibCallerApp',
+  binary = ':CppLibCallerAppBinary',
+  extension = 'app',
+  info_plist = 'Info.plist',
+)
+
+apple_binary(
+  name = 'CppLibCallerAppBinary',
+  deps = [':CppLibCallerAppResources', '//src:{{ cookiecutter.Library_name }}'],
+  preprocessor_flags = ['-fobjc-arc', '-Wno-objc-designated-initializers'],
+  headers = glob([
+    '*.h',
+  ]),
+  srcs = glob([
+    '*.m', '*.mm'
+  ]),
+  frameworks = [
+    '$SDKROOT/System/Library/Frameworks/UIKit.framework',
+    '$SDKROOT/System/Library/Frameworks/Foundation.framework',
+  ],
+)
+
+apple_package(
+  name = 'CppLibCallerAppPackage',
+  bundle = ':CppLibCallerApp',
+)

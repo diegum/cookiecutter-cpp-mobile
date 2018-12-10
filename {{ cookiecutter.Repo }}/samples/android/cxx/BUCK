@@ -1,0 +1,20 @@
+# Copyright (c) {{ cookiecutter.Year }}-present, {{ cookiecutter.Copyright_holder }}.
+# All rights reserved.
+#
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+
+cxx_library(
+  name = '{{ cookiecutter.Library_name }}jni',
+  srcs = glob(['*.cpp']),
+  soname = 'lib{{ cookiecutter.Library_name }}jni.so',
+  compiler_flags = [
+    '-fvisibility=hidden',
+  ],
+  deps = [
+    '//src:{{ cookiecutter.Library_name }}',
+  ],
+  visibility = [
+    '//samples/android/java/com/diegum/{{ cookiecutter.Library_name }}app:solib',
+  ],
+)

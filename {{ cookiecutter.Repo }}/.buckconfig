@@ -1,0 +1,50 @@
+# Copyright (c) {{ cookiecutter.Year }}-present, {{ cookiecutter.Copyright_holder }}.
+# All rights reserved.
+#
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+
+[cache]
+  mode = dir
+
+[cxx]
+  default_platform = iphonesimulator-x86_64
+  cflags = -g -std=c11
+  cxxflags = -g -std=c++14 -stdlib=libc++ -Werror -Wall
+  # Many ARC APIs don't compile with separate preprocess and compile.
+  combined_preprocess_and_compile = true
+
+[cxx#test]
+  cflags = -g -std=c11
+  cxxflags = -g -std=c++14 -stdlib=libc++ -Werror -Wall
+
+[alias]
+  android_sample = //samples/android:CppLibCallerApp
+  ios_sample = //samples/ios:CppLibCallerApp
+  terminal = //samples/terminal:main#test
+  test = //tests:main#test
+
+[ndk]
+  compiler = clang
+  ndk_path = /usr/local/share/android-ndk
+  app_platform = android-28
+
+[android]
+  target = android-28
+
+[java]
+  src_roots = /samples/android/java/
+  source_level = 7
+  target_level = 7
+
+[parser]
+  default_build_file_syntax = skylark
+
+[project]
+    default_android_manifest = //samples/android/AndroidManifest.xml
+    ignore = .buckd, \
+             .hg, \
+             .git, \
+             .idea, \
+             buck-cache, \
+             buck-out, \

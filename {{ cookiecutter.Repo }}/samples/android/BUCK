@@ -1,0 +1,14 @@
+# Copyright (c) {{ cookiecutter.Year }}-present, {{ cookiecutter.Copyright_holder }}.
+# All rights reserved.
+#
+# This source code is licensed under the license found in the
+# LICENSE file in the root directory of this source tree.
+
+android_binary(
+  name = 'CppLibCallerApp',
+  manifest = 'AndroidManifest.xml',
+  keystore = '//samples/android/keystores:debug',
+  deps = [
+    '//samples/android/java/com/diegum/{{ cookiecutter.Library_name }}app:solib',
+  ],
+)
