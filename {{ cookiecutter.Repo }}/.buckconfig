@@ -23,6 +23,8 @@
   ios_sample = //samples/ios:CppLibCallerApp
   terminal = //samples/terminal:main#test
   test = //tests:main#test
+  lint = //:lint
+  doc = //:doc
 
 [ndk]
   compiler = clang
@@ -36,6 +38,9 @@
   src_roots = /samples/android/java/
   source_level = 7
   target_level = 7
+
+[apple]
+  device_helper_path = /usr/local/bin/fbsimctl
 
 [parser]
   default_build_file_syntax = skylark

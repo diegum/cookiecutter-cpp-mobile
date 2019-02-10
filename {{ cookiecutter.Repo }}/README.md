@@ -21,11 +21,13 @@ You can build the demo applications from the command line!
 
 ### Android
 
-For Android, build the demo with:
+For Android, make sure that you have the [Android NDK](https://developer.android.com/ndk/) to build the C++ portion. You'll also need the [Android SDK](https://developer.android.com/studio/) for Java & Kotlin code. Build the demo with:
 
     $ buck install --run android_sample
 
 ### iOS
+
+Only available on macOS systems. Make sure that your Mac has the Xcode command line tools package -if your machine has Xcode, it does have the command line tools-. Buck also requires [`fbsimctl`](https://github.com/facebook/FBSimulatorControl/tree/master/fbsimctl) installed. Build the demo with:
 
     $ buck install --run ios_sample
 
@@ -33,17 +35,29 @@ For Android, build the demo with:
 
     $ buck run terminal
 
-## Testing
+## Software craftsmanship
 
-This library aggregates a Catch/2 test framework. To build and run tests:
+### Testing
+
+This library aggregates a [Catch/2 test framework](http://catch-lib.net/). To build and run tests:
 
     $ buck run test
 
-## Project Generation
+### Documentation
 
-You can create projects for IntelliJ (Android) and Xcode (iOS) so you
-can use your IDE to make changes to your project still.  This is
-unnecessary if you happen to be using [Nuclide](http://nuclide.io/).
+Make sure that you have [Doxygen](http://www.doxygen.nl) installed in your machine and generate the Javadoc-like documentation with:
+
+    $ buck run doc
+
+### Style checking
+
+Make sure that you have [Cppcheck](http://cppcheck.sourceforge.net) installed in your machine. Look for potential C++ coding style violations with:
+
+    $ buck run lint
+
+## Project generation
+
+You can create projects for IntelliJ (Android) and Xcode (iOS) so you can use your IDE to make changes to your project still.
 
 ### Android
 
