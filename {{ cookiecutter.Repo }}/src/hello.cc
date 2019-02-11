@@ -11,6 +11,11 @@
 
 const std::string hello_string::HELLO = "Hello from C++ lib!!";
 
-hello_string::hello_string(){};
+hello_string::hello_string() = default;
 
-const std::string hello_string::get_string() { return (HELLO); }
+const std::string
+// cppcheck-suppress unusedFunction
+hello_string::get_string() const
+{
+  return (HELLO);
+}

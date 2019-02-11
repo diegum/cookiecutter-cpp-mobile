@@ -6,15 +6,41 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+#ifndef HELLO_H
+#define HELLO_H
+
+/**
+ * @mainpage {{ cookiecutter.Library_name }}
+ *
+ * Enter your welcome-message and description to this library Javadoc.
+ *
+ * Something to expand on this notion:
+ * {{ cookiecutter.Brief_description }}.
+ */
+
 #include <string>
 
-class hello_string {
+/**
+ * This class generates salutation strings.
+ */
+class hello_string
+{
 
 private:
   static const std::string HELLO;
 
 public:
+  /**
+   * Default constructor.
+   */
   hello_string();
 
-  const std::string get_string();
+  /**
+   * Generates a salutation string.
+   *
+   * @return     A salutation string.
+   */
+  const std::string get_string() const;
 };
+
+#endif // HELLO_H
